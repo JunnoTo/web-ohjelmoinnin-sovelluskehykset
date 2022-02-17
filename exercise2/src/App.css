@@ -1,0 +1,26 @@
+.cont{
+  background-color: bisque;
+  width:500px;
+  margin: 50px;
+  padding:50px;
+  border:1px solid black;
+}
+
+.contItem{
+  background-color:rgb(232, 255, 195);
+  font-size:30px;
+  border:2px solid black;
+  padding:20px;
+}
+.title{
+  text-align:center;
+  font-size: 50px;
+  font-weight:bold;
+}
+.itemNappi{
+  background-color:rgb(143, 154, 255);
+  font-size:15px;
+  border:2px solid black;
+  padding:20px;
+  margin-left:100px;
+}
