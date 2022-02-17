@@ -1,0 +1,202 @@
+
+body{
+  background-color:rgb(201, 201, 201);
+}
+.flex-container{
+    background: rgb(15, 15, 68);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    height: 60px;
+    }
+    .flex-item{
+      background: rgb(15, 15, 68);
+      padding: 5px;
+      width: 200px;
+      height: 50px;
+      margin-top: 10px;
+      line-height: 50px;
+      color: white;
+      font-size: 20px;
+      text-align: center;
+      flex-grow: 1;
+      display: flex;
+      font-size:17px;
+      font-weight: bold;
+    }
+    .flex-item-2{
+        background-color: white;
+        color: black;
+        padding: 5px;
+        width: 100px;
+        height: 50px;
+        margin-top: 10px;
+        line-height: 50px;
+        font-weight: bold;
+        font-size: 15px;
+        text-align: center;
+        flex-grow: 1;
+    }
+    .flex-container a{
+      text-decoration: none;
+      display: block;
+      padding: 1em;
+      color: white;
+    }
+    .flex-container a:hover{
+      text-decoration: underline;
+    }
+    .flex-item-2:hover{
+      text-decoration:underline black;
+      cursor: pointer;
+    }
+    .otsikko{
+      font-family:"Comic Sans MS","Comic Sans", cursive;
+      padding-left: 200px;
+      width: 500px;
+      font-size:30px;
+    }
+    svg{
+      width:30px;
+      height:30px;
+      color:white;
+      margin-top:10px;
+      margin-left:3px;
+    }
+    .right{
+      padding-left:200px;
+    }
+    .box{
+      width: 100px;
+      height: 45px;
+      border-radius: 25px;
+      background-color:white;
+      color: black;
+      margin-right: 50px;
+    }
+    span{
+      padding-left:20px;
+    }
+    .news{
+      background: rgb(1,133,143);
+      justify-content: flex;
+      padding: 0;
+      margin-top: 20px;
+      margin-left: 300px;
+      margin-right: 450px;
+      margin-bottom: 20px;
+      height: 55px;
+      text-align: center;
+    }
+    .newsdata{
+      font-weight: bold;
+      background: rgb(1, 133, 143);
+    }
+    .acontainer{
+      display:flex;
+      flex-direction: row;
+      line-height: 40px;
+      margin-left: 120px;
+      margin-top: 30px;
+      margin-right: 220px;
+    }
+    .articlecontainer{
+      width:700px;
+      margin-left:300px;
+      float:left;
+    }
+    .articles{
+      align-items: stretch;
+      flex-wrap: nowrap;
+      flex-direction: column;
+      justify-content: flex-start;
+      background-color: white;
+      margin-top: 0px;
+      min-height: 700px;
+      border-top: 1px solid black;
+    }
+    .article{
+      background-color:white;
+      color: black;
+      padding-top: 0px;
+      font-size: 22px;
+      margin-left: 30px;
+      margin-bottom: 0px;
+      margin-top: 0px;
+      flex-grow: 0;
+      width:600px;
+    }
+    .articlepic{
+      width: 600px;
+      height:500px;
+      flex-grow: 0;
+      margin-top:0px;
+      margin-right: 500px;
+      margin-left:45px;
+      background-color: transparent;
+    }
+    .articleinfo{
+      color: midnightblue;
+      background-color: white;
+      margin-left: 50px;
+      font-size: 18px;
+      width:600px;
+    }
+    .articledata{
+      color: black;
+      padding-left:5px;
+      font-weight: normal;
+    }
+    .sidebar{
+      padding: 10px;
+      display: flex;
+      line-height: 50px;
+      width:300px;
+      margin-left: 1020px;     
+      align-items: stretch;
+      flex-wrap: nowrap;
+      flex-direction: column;
+      justify-content: flex-start;
+      width: 420px;
+      height: 200px;
+    }
+    .count:before{
+      counter-increment:section;
+      content: counter(section);
+    }
+    .topitem{
+      background-color: white;
+      color: black;
+      display:flex;
+      flex-grow: 1;
+    }
+    .toptitle{
+      font-size: 25px;
+      background-color: white;
+      border-bottom: 1px solid black;
+      font-weight: bold;
+    }
+    .sidebaritem{
+      font-size: 18px;
+      display: flex;
+      flex-direction: row;
+      border-bottom: 1px solid gray;
+      flex-grow: 1;
+    }
+    .numbers{
+      flex-direction: column;
+      text-align: center;
+      background-color: white;
+      float:left;
+      width: 60px;
+      font-size:35px;
+      font-weight: bold;
+      color:rgb(1, 133, 143);
+    }
+    .topitemtitle{
+      font-weight: bold;
+      background-color: white;
+    }
