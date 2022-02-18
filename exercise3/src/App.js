@@ -1,8 +1,7 @@
 import './App.css';
 
 import MainHeader from './components/MainHeader'
-import ProductListView from './components/ProductListView'
-import EditorView from './components/EditorView'
+import ProductItem from './components/ProductItem'
 
 import {useEffect, useState} from 'react';
 import React from 'react';
@@ -25,9 +24,7 @@ import fivestars from './images/fivestars.PNG'
 
 function App() {
 
-  const[editorModeOn, setEditorModeOn] = useState(false);
-
-  const[productList] = useState([
+  const[productList, setProducts] = useState([
     {img: monitor, name:'HP 24mh FHD Monitor', price:229.99, rating: fivestars},
     {img: vr, name:'Oculus Quest 2', price:299.99, rating: fivestars},
     {img: xbox, name:'Xbox Series S', price: 249.99, rating: fourstars},
@@ -39,12 +36,35 @@ function App() {
     {img: headset, name:'HyperX Cloud II', price: 59, rating: fourandahalfstars}
   ]);
 
+
+  const priceASC = () => {
+    let sortedASC = [...productList];
+    sortedASC.sort((a,b)=>{
+      if(a.price < b.price) return -1;
+      if(a.price > b.price) return 1;
+      return 0;
+    })
+      setProducts(sortedASC)
+  }
+
+  const priceDES = () => {
+    let sortedDES = [...productList];
+    sortedDES.sort((a,b)=>{
+      if(a.price > b.price) return -1;
+      if(a.price < b.price) return 1;
+      return 0;
+    })
+      setProducts(sortedDES)
+  }
+
   return (
     <div className="Main">
       <MainHeader/>
-        <button onClick = { () =>setEditorModeOn(!editorModeOn)}>Admin mode</button>
-        { editorModeOn == true ? <EditorView/> : <ProductListView products={productList}/>}
-
+      <button onClick={() => priceASC()}>Hinta nouseva</button>
+      <button onClick = { () => priceDES()}>Hinta laskeva</button>
+      <div className="productContainer">
+      {productList.map(p => <ProductItem img={p.img} name={p.name} price={p.price} rating={p.rating}/>)}
+      </div>
     </div>
   );
 }
