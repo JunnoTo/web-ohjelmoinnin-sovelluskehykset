@@ -2,23 +2,20 @@ const express = require('express');
 const router = express.Router();
 const { v4: uuidv4 } = require('uuid');
 
+
+
+let x = 1000
+
 const products = [
     {
     id: uuidv4(),
-    name:"Lighter",
+    name:"Example product",
     manufacturer:"BiC",
     category:"Outdoor",
-    description:"A green lighter",
-    price: 1
+    description:"hard coded product for testing purposes",
+    price: x
     }
 ];
-let product = products[0].name;
-exports.product = product;
-
-function sum(a,b){
-    return a.price * b.price;
-}
-module.exports = {sum}
 
 
 
