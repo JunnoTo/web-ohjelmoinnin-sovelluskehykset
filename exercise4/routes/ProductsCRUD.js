@@ -9,6 +9,7 @@ let x = 1000
 const products = [
     {
     id: uuidv4(),
+    img: "https://dummyjson.com/image/i/products/1/thumbnail.jpg",
     name:"Example product",
     manufacturer:"BiC",
     category:"Outdoor",
@@ -59,6 +60,7 @@ router.post('/',(req, res) => {    // CREATE PRODUCT
 
     products.push({
         id: uuidv4(),
+        img: req.body.img,
         name: req.body.name,
         manufacturer: req.body.manufacturer,
         category: req.body.category,
@@ -71,6 +73,7 @@ router.post('/',(req, res) => {    // CREATE PRODUCT
 router.put('/:productId', (req, res) =>{ //UPDATE PRODUCT
     let foundProduct = products.find(t => t.id == req.params.productId);
     if(foundProduct){
+        foundProduct.img = req.body.img;
         foundProduct.name = req.body.name;
         foundProduct.manufacturer = req.body.manufacturer;
         foundProduct.category = req.body.category;

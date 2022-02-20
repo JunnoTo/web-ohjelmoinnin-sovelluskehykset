@@ -2,13 +2,10 @@ import './App.css';
 import React from 'react';
 import {useState, useEffect} from 'react';
 
-import TopBlock from './components/TopBlock'
+
 import ListOfProducts from './components/ListOfProducts'
 import EditorView from './components/EditorView'
-
-
-
-
+import SortProducts from './components/SortProducts'
 
 function App() {
 
@@ -37,6 +34,7 @@ function App() {
     fetch(`http://localhost:3001/products`, { method: 'POST', 
       headers: { 'Content-Type': 'application/json'},
       body: JSON.stringify({
+        img: item.img,
         name: item.name,
         manufacturer: item.manufacturer,
         category: item.category,
@@ -45,32 +43,29 @@ function App() {
     })})
   }
 
-
-  //seuraavat neljä funkitoita tykkää temppuilla keskenään. Jos on esim. järjestelty jo aakkosittain ja koitetaan järjestää vielä hinnalla, saattaa lopputulos olla odottamaton :)
-  //Suosittelen refreshaamaan sivun ennen toisen järjestelytavan käyttöä
   const priceASC = () => {
     const sortedASC = [...products];  
     sortedASC.sort((a,b)=>{       
       let x = parseInt(a.price),  //Tässä koitin aiemmin samaa toteutustapaa kun alemmassa priceDES() funktiossa.
       y = parseInt(b.price);      //Se keskittyi hinnan ensimmäiseen lukuun eniten johtaen siihen että esim 90$ hintainen tuote oli kalliimpi kuin 1000$ hintainen.
-      return x > y ? 1 : y > a ? -1 : 0;
+      if(x > y) return 1;
+      if(x < y) return -1;
+      return 0;
     })
-      setProducts(sortedASC)
+      setProducts(sortedASC);
   }
 
-  const priceDES = () => {    //ei todettu ongelmia
+  const priceDES = () => {    //jos hinta on järjettömän suuri niin tuote voi olla väärällä paikalla
     let sortedDES = [...products];
     sortedDES.sort((a,b)=>{
       if(a.price > b.price) return -1;
       if(a.price < b.price) return 1;
       return 0;
     })
-      setProducts(sortedDES);
-      
+      setProducts(sortedDES); 
   }
 
   const nameASC = () => {
-
     let alphaASC = [...products]; //toimii
     alphaASC.sort((a,b)=>{
       let x = a.name.toUpperCase(),
@@ -81,7 +76,6 @@ function App() {
   }
     
   const nameDES = () => {
-
     let alphaDES = [...products]; 
     alphaDES.sort((a,b)=>{   
       let x = a.name.toUpperCase(), 
@@ -90,7 +84,6 @@ function App() {
     })
     setProducts(alphaDES)
   }
-
 
   /*
   const onItemUpdate = (item) => {
@@ -116,16 +109,21 @@ function App() {
    />;
   }
 
-
   return (
     <div className="App">
-      <TopBlock />
-      <button onClick={() => priceASC()}>Hinta nouseva</button>
-      <button onClick={() => priceDES()}>Hinta laskeva</button>
-      <button onClick={() => nameASC()}>A - Ö</button>
-      <button onClick={() => nameDES()}>Ö - A</button>
+      <div className="topBar">
+        <div className="title">Amatsoni</div>
+        <button onClick={ () =>setEditorModeOn(!editorModeOn)} className="btnAdmin">Admin mode Toggle</button>
+      </div>
+
+      <SortProducts 
+        priceASC={priceASC}
+        priceDES={priceDES}
+        nameASC={nameASC}
+        nameDES={nameDES}
+      />
+
       
-      <button onClick={ () =>setEditorModeOn(!editorModeOn)} className="btnAdmin">Admin mode Toggle</button>
       { output }
     </div>
   );

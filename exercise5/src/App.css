@@ -13,6 +13,9 @@
     grid-template-columns:100%;
   }
 }
+body{
+  background-color:rgb(75, 75, 75);
+}
 .productItem{
   height:350px;
   width:300px;
@@ -23,6 +26,7 @@
   flex-direction:column;
   justify-content: center;
   align-items: center;
+  color:white;
 }
 .productContainer img {
   width: 100%;
@@ -44,11 +48,12 @@ h1{
   padding-top:1px;
 }
 .title{
-float:left;
-margin-left:15px;
-width:100px;
-font-size: 30px;
-font-family: "Comic Sans", cursive, sans-serif;
+  float:left;
+  margin-left:15px;
+  width:100px;
+  font-size: 30px;
+  font-family: "Comic Sans", cursive, sans-serif;
+  color:orange;
 }
 .btnAdmin{
   float:right;
@@ -59,4 +64,55 @@ font-family: "Comic Sans", cursive, sans-serif;
 }
 .btnBuy{
   cursor: pointer;
+}
+h1{
+  color: orange;
+}
+label{
+  color: white;
+}
+.editorContainer{
+  display:flex;
+  flex-direction: column;
+  color: rgb(231, 227, 0);
+}
+.save-btn{
+  width:70px;
+  background-color:blue;
+  margin-top:15px;
+  margin-left: 130px;
+  margin-bottom: 100px;
+  font-weight: bold;
+}
+input{
+  margin-left:50px;
+  display:flex;
+}
+.item-save{
+  width:200px;
+  float:left;
+  margin-left:50px
+}
+.item-delete{
+  float:right;
+  display: flex;
+  flex-direction: column;
+  width:500px;
+  color:rgb(255, 123, 0);
+  margin-left:50px;
+}
+.delete-btn{
+  font-weight: bold;
+  background-color: red;
+  margin-left: 15px;
+  height:30px
+}
+.create-title{
+  margin-left:130px;
+  text-decoration:underline;
+}
+.delete-title{
+  color: rgb(255, 123, 0);
+  margin-left:130px;
+  text-decoration: underline;
 }
