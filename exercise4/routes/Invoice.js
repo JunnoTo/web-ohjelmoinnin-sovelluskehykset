@@ -10,9 +10,9 @@ const { v4: uuidv4 } = require('uuid');
 const invoice = [
     { 
       id: uuidv4(),
-      "customer" : customer[0],  // Ei toimi halutulla tavalla. Kuittiin voi edelleen lisätä käyttäjän ja tuotteen joita ei ole olemassa
+      "customer" : customer[0], 
       "product" : product[0],
-      "sum":""  //Lopulliselle summalle ei ole oikeata funktiota, tulee ilmoittaa manuaalisesti
+      "sum":""  
     }
   ];
   console.log(customer);
